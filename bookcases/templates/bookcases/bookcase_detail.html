@@ -1,7 +1,15 @@
 {% extends "core/base.html" %}
 
 {% block content %}
-<h2> {{ bookcase.name }}</h2>
+
+<h2> 
+<div class="pull-right">
+    <a href="{% url 'bookcases:bookcase_edit' bookcase.pk %}">
+    Edit
+    </a>
+</div>
+
+{{ bookcase.name }}</h2>
 <hr>
 <p class="lead">{{bookcase.description}}</p>
 
@@ -13,7 +21,7 @@
         <div class="pull-right">
         <span class="badge">
             {{bookshelf.book_count}}
-            book{{bookshel.book_count|pluralize}}
+            book{{bookshelf.book_count|pluralize}}
         </span>
         </div>
         <a href="{{bookshelf.get_absolute_url}}">

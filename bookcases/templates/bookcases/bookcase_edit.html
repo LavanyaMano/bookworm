@@ -1,7 +1,15 @@
 {% extends "core/base.html" %}
 
 {% block content %}
-
+{% if bookcase %}
+<h2>
+    Edit:{{bookcase.name}}
+</h2>
+{% else %}
+<h2>
+    New Bookcase
+</h2>
+{% endif %}
 <h2>New Bookcase</h2>
 <form action="" method="POST">
     {% csrf_token %}
