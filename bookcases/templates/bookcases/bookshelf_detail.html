@@ -3,8 +3,16 @@
 {% block content %}
 
 <h2>
-    {{bookshelf.shelf_label}}
+    <div class="pull-right">
+    <a href="{% url 'bookcases:bookshelf_edit' bookshelf.pk %}">
+    <i class="fa fa-pencil-square"></i>
+
+    </a>
+</div>
+
+    {{ bookshelf.shelf_label}}
     <hr>
+
 </h2>
 <p>
     <em>

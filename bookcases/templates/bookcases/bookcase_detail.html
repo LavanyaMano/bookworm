@@ -5,7 +5,8 @@
 <h2> 
 <div class="pull-right">
     <a href="{% url 'bookcases:bookcase_edit' bookcase.pk %}">
-    Edit
+    <i class="fa fa-pencil-square"></i>
+
     </a>
 </div>
 
@@ -32,4 +33,5 @@
 {% else %}
 <p>No Bookshelves for this bookcase </p>
 {% endif %}
+<a class = "btn btn-primary btn-block btn-lg" href ="{% url 'bookcases:bookshelf_new' bookcase.pk %}"> Add Bookshelf</a>
 {% endblock content %}
