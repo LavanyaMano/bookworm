@@ -1,0 +1,20 @@
+{% extends "core/base.html" %}
+
+
+{% block content %}
+<h2>
+    Books
+</h2>
+<hr>
+{% if books %}
+<div class="row">
+    {% for book in books %}
+    <div class="col-md-4">
+        {% include "books/_book_thumbnail.html"%}
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<h4> No books found.</h4>
+{% endif %}
+{% endblock content%}

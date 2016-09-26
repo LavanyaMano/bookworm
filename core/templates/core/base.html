@@ -29,6 +29,19 @@
                     Bookworm
                 </a>
             </div>
+            <ul class="nav navbar-nav navbar-right">
+            {% if request.user.is_authenticated %}
+
+            <li><a href="{% url 'accounts:logout' %}">Logout</a> </li>
+            {% else %} 
+            <li><a href="{% url 'accounts:login' %}">Login</a> </li> 
+            {% endif %} 
+            </ul>
+            <form class="navbar-form navbar-right" action="{% url 'books:book_list' %}">
+            <label for="index-search" class="sr-only"> Search books</label>
+                <input type="text" class="form-control input-lg" name="q" placeholder="Find a book">
+                <button type="subimt" class="btn btn-info"> Find</button>
+            </form>
           </div>
         </nav>
     </header>
