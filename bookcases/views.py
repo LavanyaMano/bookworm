@@ -3,6 +3,7 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponse
 from django.db.models import Count
 from django.contrib  import messages
+from django.contrib.auth.decorators import login_required
 
 
 from .models import Bookcase, Bookshelf
@@ -38,6 +39,7 @@ def bookcase_detail(request, id):
 
     return render(request, "bookcases/bookcase_detail.html", context)
 
+@login_required
 def bookcase_new(request):
     if request.method == "POST":
         form = BookcaseForm(request.POST)
@@ -51,6 +53,8 @@ def bookcase_new(request):
     "form":form, 
     }
     return render(request,"bookcases/bookcase_edit.html",context)
+
+@login_required
 
 def bookcase_edit(request,id):
     bookcase = get_object_or_404(Bookcase,pk = id)
@@ -90,6 +94,8 @@ def bookshelf_detail(request, id):
 
     return render(request, "bookcases/bookshelf_detail.html", context)
 
+@login_required
+
 def bookshelf_new(request,bookcase_id):
     bookcase = get_object_or_404(Bookcase,pk=bookcase_id)
     if request.method == "POST":
@@ -112,6 +118,7 @@ def bookshelf_new(request,bookcase_id):
     return render(request,"bookcases/bookshelf_edit.html", context)
 
 
+@login_required
 def bookshelf_edit(request,id):
     bookshelf = get_object_or_404(Bookshelf,pk=id)
     if request.method == "POST":
