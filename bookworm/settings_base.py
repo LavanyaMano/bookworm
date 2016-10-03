@@ -53,8 +53,7 @@ INSTALLED_APPS = (
     'books',
 
 )
-if DEBUG:
-    INSTALLED_APPS += ('debug_toolbar',)
+
     
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -91,12 +90,6 @@ WSGI_APPLICATION = 'bookworm.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
 
 
 # Internationalization
